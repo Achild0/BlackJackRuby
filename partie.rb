@@ -54,16 +54,18 @@ def testSoloPartie(joueur)
 end
 
 def manche(concerne,ledeck)
-    puts "1 - Hit 2 - Stand 3 - Abandon"
+    puts "1 - Hit | 2 - Stand | 3 - Split (Not Done Yet) | 4 - Double 8Not Ready Yet | 5 - Abandon"
     case gets.strip
     when "1"
         caseHit(concerne,ledeck)
     when "2"
         caseStand(concerne,ledeck)
-    when "3"
+    when "5"
         caseAbondon(concerne,ledeck)
     else
-        
+        puts "Try again"
+        manche(concerne,ledeck)
+        return
     end
     
     puts concerne.voirCartes
@@ -90,6 +92,6 @@ def caseStand(ply,deck)
 end
 
 def caseAbondon(ply,deck)
-    puts "You stand ! Can't play anymore !"
+    puts "You have abandonned! Can't play anymore !"
     ply.playStatus(false)
 end

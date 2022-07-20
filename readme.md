@@ -6,8 +6,10 @@ For now just console stuff so no gui, but playable.
 
 ## TODO List :
 
-* Secure the code a bit - **Mainly user indput**
+* Secure the code a bit - **Mainly user input**
 * Multiplayer
 * Dealer IA
 * A bit of story/rpg for solo (Like a loan that you have to cash back and stuff linked to that)
 * Leaderboard
+* Comment code more ...
+* Tidy things up
