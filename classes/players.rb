@@ -12,11 +12,8 @@ class Joueur
         @cartes = Array.new
         @scoreAct = 0
         @canPlay = true
-<<<<<<< HEAD
         @assProfile = nil
-=======
         @connexion = nil
->>>>>>> e3b4de9 (Ajout interaction avec Multiple conneixon + réponse + profil temp.)
     end
 
     def donnerCarte(carte)
