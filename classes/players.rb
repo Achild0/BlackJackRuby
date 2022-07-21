@@ -37,9 +37,9 @@ class Joueur
         else
             @cartes.each do |i|
                 if i.getVisible() then
-                    case i.getNum
+                    case i.num
                     when 2..10
-                        @i_g += "|#{i.getNum} de "
+                        @i_g += "|#{i.num} de "
                     when 1 
                         @i_g += "|As de "
                     when 11
@@ -52,7 +52,7 @@ class Joueur
                         @i_g += "|**ERREUR** "
                     end
 
-                    case i.getCardSign
+                    case i.sign
                     when 1
                         @i_g += "Coeur|"
                     when 2
@@ -86,7 +86,7 @@ class Dealer < Joueur
 
     def play(deck)
         @cartes.each do |c| 
-            c.setVisible(true)
+            c.visible(true)
         end
         while @scoreAct < 17
             puts "Le croupier prend une carte ..."
@@ -98,7 +98,7 @@ class Dealer < Joueur
 
     def donnerCarte(carte)
         if @cartes.size == 1 then
-            carte.setVisible(false)
+            carte.visible(false)
         end
         @cartes << carte
         @scoreAct += carte.getCardScore(@scoreAct)

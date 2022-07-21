@@ -13,10 +13,15 @@ class Card
         @visible = true
     end
 
-    def setVisible(bool)
-        @visible = bool
-    end
+    #Getters and setters
 
+    attr_reader :sign
+    attr_reader :num
+    attr_accessor :visible
+
+    #Methods
+
+    #Gets the balckjack score of the card, and handels aces
     def getCardScore(actscore = 0)
         case @num
         when 1
@@ -31,23 +36,21 @@ class Card
             return @num
         end
     end
-
-    def getCardSign()
-        return @sign
-    end
-
-    def getNum()
-        return @num
-    end
-
-    def getVisible()
-        return @visible
-    end
 end
 
+=begin Deck Class
+
+    The Deck class represents a real deck with cards in it (Card Class).
+    The initialisation has no params
+
+=end
+
 class Deck
+    #Class variables
     @@signes = 4
     @@nombres_cartes = 52
+
+    #Constructor - Will create a 52 cards deck.
     def initialize
         @n_cartes = 0
         @cartes = Array.new
@@ -62,12 +65,15 @@ class Deck
         @cartes = @cartes.shuffle
     end
 
+    #Getters and setters
+
+    attr_reader :n_cartes
+
+    #Methods
+
+    #draw method simply get a card
     def draw
         @n_cartes -=1
         return @cartes.shift
-    end
-
-    def getNbCards
-        return @n_cartes
     end
 end
