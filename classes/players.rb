@@ -105,11 +105,3 @@ class Dealer < Joueur
     end
 
 end
-
-class Table
-
-    def initialize
-        @nb_joueurs = 0
-    end
-    
-end
