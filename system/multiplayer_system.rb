@@ -3,11 +3,15 @@ require 'socket'
 def hostGame()
 
     server = TCPServer.open(2000)
+    puts server.addr(true)
     loop {
         Thread.start(server.accept) do |client|
-            client.puts "Hello dear client !"
-            sleep(5)
-            client.puts "ohh i slept well !"
+            client.puts "Connexion Successfull"
+            client.puts "DEBUG : Please send me the data i need to create your multi-profile" #DEBUG
+            client.puts "PROFILE_DATA"
+            response = client.gets.chop
+            puts "DEBUG: Response #{response}" #DEBUG
+            puts "DEBUG: Received DATA" #DEBUG
             client.puts "Client, have you something to say ?"
             client.puts "OUT"
             sleep(1)
@@ -34,10 +38,17 @@ def clientGame()
 
     while line = s.gets
         puts line.chop
-        if line.chop == "OUT"
+        case line.chop 
+        when "OUT"
             outline = gets.chomp
             s.puts outline
+        when "PROFILE_DATA"
+            s.puts "Server".hash
         end    
     end
     s.close
 end
+
+def searchProfile()
+
+end 

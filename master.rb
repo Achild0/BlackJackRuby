@@ -1,6 +1,13 @@
 #!/usr/bin/ruby -w
 BEGIN {
 
+#Constants / Global Vars
+Subprocess_to_end = Array.new
+
+#Require
+require 'securerandom'
+
+#require_relative
 require_relative 'classes/cards.rb'
 require_relative 'classes/players.rb'
 require_relative 'classes/profile.rb'
@@ -8,6 +15,8 @@ require_relative 'system/partie_system'
 require_relative 'system/save_system'
 require_relative 'system/multiplayer_system'
 require_relative 'solo.rb'
+
+#Welcome text and menu
 
 puts "======================================"
 puts "Bienvenue au RubyJack Games !"
@@ -27,15 +36,22 @@ puts "6 - Quitter"
 menu_choix = gets.chomp.to_i
 case menu_choix
 when 1
-    puts "Choix du soloiste !"
+    puts "Even if you're lonely, we'll play with you."
     mn_thread = Thread.new{soloGame()}
     puts "DEBUG: Thread Lancé" #DEBUG
     mn_thread.join
+when 2
+    puts "On heberge alors !"
+    system("clear") || system("cls")
+    sv_thread = Thread.new{hostGame()}
+    puts "DEBUG: Thread serveur lancé" #DEBUG
+    Subprocess_to_end << sv_thread
 else
-    puts "DEBUG: feature non disponible pour le moment."  #DEBUG
+    puts "DEBUG: Feature non disponible pour le moment."  #DEBUG
 end
 
 END {
+    Subprocess_to_end.each {|t| t.join}
     puts "Press enter to close ..."
     gets #DEBUG Make juste to wait. Finally to delete
 };
