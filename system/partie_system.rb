@@ -42,6 +42,10 @@ def partieSolo(joueur)
     end
 end
 
+def partiMulti(joueurs) #TODO partieMulti
+
+end
+
 def manche(concerne,ledeck)
     puts "1 - Hit | 2 - Stand | 3 - Split (Not Done Yet) | 4 - Double (Not Ready Yet) | 5 - Abandon"
     case gets.strip
