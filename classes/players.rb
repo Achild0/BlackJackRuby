@@ -11,12 +11,15 @@ class Joueur
         @cartes = Array.new
         @scoreAct = 0
         @canPlay = true
+        @connexion = nil
     end
 
     def donnerCarte(carte)
         @cartes << carte
         @scoreAct += carte.getCardScore(@scoreAct)
     end
+
+    attr_accessor :connexion
 
     def getScoreActuel
         new_score = 0
