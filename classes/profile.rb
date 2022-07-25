@@ -1,6 +1,19 @@
 #!/usr/bin/ruby -w
-require 'json'
+#Require part
+require 'json' # Love you json <3
 
+#Constant part
+
+=begin Profile Class
+
+    The Profile class is the profile of the player, you got everything here.
+    Your stats money and identity.
+    string pseud => Your alias
+    float amount  => Your money
+    int victories => Self expl.
+    int defeats => Self expl.
+    float Loan  => Still in building phase #TODO Make this loan a class for more fun (intersests and stuffs)
+=end
 class Profile
     def initialize(pseud,amount = 0,victories = 0,defeats = 0,loan = 0)
         @pseudo = pseud
@@ -10,6 +23,7 @@ class Profile
         @loan = loan
     end
 
+    #saveSelf() -> Save profile in json locally
     def saveSelf()
         profile_json = generateJsonString()
         aFile = File.new("sauvgard/#{@pseudo}.json", "w")
@@ -24,6 +38,7 @@ class Profile
         end
     end
 
+    #loadFromFile(FileName) -> Remold a profile from existing save file
     def loadFromFile(file)
         aFile = File.new("#{file}","r")
         unless aFile
@@ -42,6 +57,7 @@ class Profile
         end
     end
 
+    #toVisual -> Print stats in console
     def toVisual()
         puts "------------------------"
         puts "- Pseudo: #{@pseudo}"

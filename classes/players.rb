@@ -1,4 +1,9 @@
 #!/usr/bin/ruby -w
+
+=begin Joueur Class
+    The Joueur Class represents the player as a BlackJack entity. 
+    string pseudo -> The alias
+=end
 class Joueur
 
     def initialize(pseudo = "Connard")
@@ -82,6 +87,11 @@ class Joueur
 
 end
 
+=begin Dealer Class - Inherits Joueur
+    The Joueur Class represents the player as a BlackJack entity. 
+    string pseudo -> The alias
+    Dealer class is juste a player class for npc
+=end
 class Dealer < Joueur
 
     def play(deck)
