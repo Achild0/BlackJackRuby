@@ -1,4 +1,4 @@
-def testSoloPartie(joueur)
+def partieSolo(joueur)
     #Argument joueur doit etre de classe Profil
     puts "***Ouverture de la partie !!! Ca va etre du SOLO pour le moment !***"
 
@@ -61,11 +61,9 @@ def manche(concerne,ledeck)
 end
 
 def giveCards(plys,deck)
-    puts "DEBUG: Variable plys : #{plys}"
     plys.each() do |p|
         2.times {        
             card = deck.draw
-            puts "DEBUG: Looping #{card}"
             p.donnerCarte(card)
             puts "Carte donnée a #{p.getPseud}"
         }

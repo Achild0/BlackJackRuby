@@ -16,7 +16,6 @@ def loadSaves
         return solo_ActPlayer
     else
         puts "Choisissez un profil : "
-        puts "DEBUG: #{saves.to_s}" #DEBUG
         for i in 0..saves.size - 1
            puts "#{i} - #{saves[i]}" 
         end

@@ -29,7 +29,6 @@ case menu_choix
 when 1
     puts "Choix du soloiste !"
     mn_thread = Thread.new{soloGame()}
-    puts "DEBUG: Thread Lancé" #DEBUG
     mn_thread.join
 else
     puts "DEBUG: feature non disponible pour le moment."  #DEBUG

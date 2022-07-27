@@ -12,10 +12,8 @@ def soloGame
         puts exception.backtrace
         return false
     end
-
-    puts "DEBUG: SoloactPLayer => #{solo_ActPlayer.to_s}" #DEBUG
-    
-    while testSoloPartie(solo_ActPlayer) do
+ 
+    while partieSolo(solo_ActPlayer) do
     end
     return false
 end
