@@ -5,6 +5,7 @@
     string pseudo -> The alias
 =end
 class Joueur
+    
 
     def initialize(pseudo = "Connard")
         @pseudo = pseudo
@@ -41,7 +42,7 @@ class Joueur
             @i_g = "Aucune Carte"
         else
             @cartes.each do |i|
-                if i.getVisible() then
+                if i.visible then
                     case i.num
                     when 2..10
                         @i_g += "|#{i.num} de "
@@ -85,6 +86,10 @@ class Joueur
         @canPlay = pl
     end
 
+    def getType()
+        @@type
+    end
+
 end
 
 =begin Dealer Class - Inherits Joueur
@@ -96,7 +101,7 @@ class Dealer < Joueur
 
     def play(deck)
         @cartes.each do |c| 
-            c.visible(true)
+            c.visible = true
         end
         while @scoreAct < 17
             puts "Le croupier prend une carte ..."
@@ -108,7 +113,7 @@ class Dealer < Joueur
 
     def donnerCarte(carte)
         if @cartes.size == 1 then
-            carte.visible(false)
+            carte.visible = false
         end
         @cartes << carte
         @scoreAct += carte.getCardScore(@scoreAct)

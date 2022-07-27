@@ -27,6 +27,7 @@ def loadSaves
             solo_ActPlayer = newProfile()
             return solo_ActPlayer
         else
+            cs = cs.to_i
             temp_prof.loadFromFile("sauvgard/#{saves[cs]}")
             solo_ActPlayer = temp_prof
             temp_prof = nil

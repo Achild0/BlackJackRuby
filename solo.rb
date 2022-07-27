@@ -8,7 +8,8 @@ def soloGame
     begin
         solo_ActPlayer = loadSaves()
     rescue => exception 
-        puts "DEBUG: Ca va chier #{exception.message}" #DEBUG A delete
+        puts "DEBUG: Erreur dans les suavegardes #{exception.message}" #DEBUG A delete
+        puts exception.backtrace
         return false
     end
 

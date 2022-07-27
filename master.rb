@@ -6,7 +6,7 @@ require_relative 'classes/players.rb'
 require_relative 'classes/profile.rb'
 require_relative 'system/partie_system'
 require_relative 'system/save_system'
-require_relative 'system/multiplayer_system'
+#require_relative 'system/multiplayer_system'
 require_relative 'solo.rb'
 
 puts "======================================"
