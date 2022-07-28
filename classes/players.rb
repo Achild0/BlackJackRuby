@@ -12,6 +12,7 @@ class Joueur
         @cartes = Array.new
         @scoreAct = 0
         @canPlay = true
+        @assProfile = nil
     end
 
     def donnerCarte(carte)
@@ -90,6 +91,13 @@ class Joueur
         @@type
     end
 
+    def getProfle()
+        @assProfile
+    end
+
+    def setProfile(prof)
+        @assProfile = prof
+    end
 end
 
 =begin Dealer Class - Inherits Joueur
