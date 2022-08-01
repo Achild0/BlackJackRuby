@@ -15,12 +15,13 @@ require 'json' # Love you json <3
     float Loan  => Still in building phase #TODO Make this loan a class for more fun (intersests and stuffs)
 =end
 class Profile
-    def initialize(pseud,amount = 0,victories = 0,defeats = 0,loan = 0)
+    def initialize(pseud,amount = 0,victories = 0,defeats = 0,loan = 0,fame = 0)
         @pseudo = pseud
         @amount = amount
         @victories = victories
         @defeats = defeats
         @loan = loan
+        @fame = fame
     end
 
     #saveSelf() -> Save profile in json locally
@@ -52,6 +53,7 @@ class Profile
             @victories = profile_parsed["victories"]
             @defeats = profile_parsed["defeats"]
             @loan = profile_parsed["loan"]
+            @fame = profile_parsed["fame"]
             aFile.close
             return self
         end
@@ -74,7 +76,8 @@ class Profile
             :amount => @amount,
             :victories => @victories,
             :defeats => @defeats,
-            :loan => @loan
+            :loan => @loan,
+            :fame => @fame
     }.to_json
         puts "DEBUG : JsonProfile = #{profile_json}"
         return profile_json
@@ -114,5 +117,13 @@ class Profile
 
     def addLoan(amt)
         @Loan += amt
+    end
+
+    def getFame()
+
+    end
+
+    def addFame(amt)
+        @Fame += amt
     end
 end
