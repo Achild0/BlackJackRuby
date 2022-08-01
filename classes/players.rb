@@ -12,7 +12,10 @@ class Joueur
         @cartes = Array.new
         @scoreAct = 0
         @canPlay = true
+<<<<<<< HEAD
         @assProfile = nil
+=======
+>>>>>>> cf63c657e1aab3c00d79c1352f9c6d1ba5cba379
         @connexion = nil
     end
 

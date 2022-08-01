@@ -38,11 +38,14 @@ when 1
     puts "Even if you're lonely, we'll play with you."
     mn_thread = Thread.new{soloGame()}
     mn_thread.join
+<<<<<<< HEAD
 when 5
     puts "Vous aller quitter le programe ! En êtes-vous sûr ?\n Appuyez sur 5 encore une fois pour confirmer."
     if gets.chomp.to_i == 5
         return
     end
+=======
+>>>>>>> cf63c657e1aab3c00d79c1352f9c6d1ba5cba379
 when 2
     puts "On heberge alors !"
     system("clear") || system("cls")
