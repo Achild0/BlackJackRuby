@@ -6,7 +6,6 @@
 =end
 class Joueur
     
-
     def initialize(pseudo = "Connard")
         @pseudo = pseudo
         @cartes = Array.new

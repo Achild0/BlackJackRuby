@@ -15,12 +15,12 @@ require 'json' # Love you json <3
     float Loan  => Still in building phase #TODO Make this loan a class for more fun (intersests and stuffs)
 =end
 class Profile
-    def initialize(pseud,amount = 0,victories = 0,defeats = 0,loan = 0,fame = 0)
+    def initialize(pseud,amount = 0,victories = 0,defeats = 0,loans = {},fame = 0)
         @pseudo = pseud
         @amount = amount
         @victories = victories
         @defeats = defeats
-        @loan = loan
+        @loans = loans
         @fame = fame
     end
 
@@ -52,7 +52,7 @@ class Profile
             @amount = profile_parsed["amount"]
             @victories = profile_parsed["victories"]
             @defeats = profile_parsed["defeats"]
-            @loan = profile_parsed["loan"]
+            @loans = profile_parsed["loans"]
             @fame = profile_parsed["fame"]
             aFile.close
             return self
@@ -66,7 +66,7 @@ class Profile
         puts "- Amount: #{@amount}"
         puts "- Victories : #{@victories}"
         puts "- Defeats: #{@defeats}"
-        puts "- Loan: #{@loan}"
+        puts "- Loan: #{@loans}"
         puts "------------------------"
     end
 
@@ -76,7 +76,7 @@ class Profile
             :amount => @amount,
             :victories => @victories,
             :defeats => @defeats,
-            :loan => @loan,
+            :loans => @loans,
             :fame => @fame
     }.to_json
         puts "DEBUG : JsonProfile = #{profile_json}"
@@ -112,15 +112,15 @@ class Profile
     end
 
     def getLoan()
-        @loan
+        @loans
     end
 
-    def addLoan(amt)
-        @Loan += amt
+    def addLoan(loaner,amt)
+        @loans[loaner.id] += amt
     end
 
     def getFame()
-
+        @fame
     end
 
     def addFame(amt)
