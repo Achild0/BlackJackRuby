@@ -1,13 +1,13 @@
 require 'json'
 require_relative 'system/save_system'
 
-def soloGame
+def soloProfile
     #Variables importantes pour la suite de la partie.
     solo_ActPlayer = nil
+    checkSave()
     
-
     begin
-        solo_ActPlayer = loadSaves()
+        solo_ActPlayer = loadProfile()
     rescue => exception 
         puts "DEBUG: Erreur dans les sauvegardes #{exception.message}" #DEBUG A delete
         puts exception.backtrace
@@ -17,6 +17,10 @@ def soloGame
     while soloMainMenu(solo_ActPlayer) do
     end
     return false
+end
+
+def soloGame
+
 end
 
 

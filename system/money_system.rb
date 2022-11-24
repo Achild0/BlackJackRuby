@@ -52,8 +52,6 @@ class MoneyLoaner
         puts "Te donneras rien si t'es pas un minimum de fame : #{@minFame}"
         puts "**************"
     end
-
-
 end
 
 =begin

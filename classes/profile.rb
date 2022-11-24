@@ -27,7 +27,10 @@ class Profile
     #saveSelf() -> Save profile in json locally
     def saveSelf()
         profile_json = generateJsonString()
-        aFile = File.new("sauvgard/#{@pseudo}.json", "w")
+        if !Dir::exits?("#{@pseudo}") then
+            Dir.mkdir("save/#{@pseudo}")
+        end
+        aFile = File.new("save/#{@pseudo}/profile.json", "w")
         unless aFile then
             puts "ERROR : Fichier introuvable/créable"
             return

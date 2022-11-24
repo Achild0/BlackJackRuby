@@ -19,6 +19,8 @@ loaners.each() do |l|
     l.getContact()
 end
 
+soloProfile()
+
 
 =begin
 loaner = MoneyLoaner.new(50000,10)

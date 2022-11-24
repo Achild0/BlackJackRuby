@@ -1,9 +1,9 @@
-def loadSaves
+def loadProfile()
     totalEntries = 0
     saves = Array.new
     solo_ActPlayer = nil #Class Profile
 
-    Dir.entries("sauvgard").each do |f|
+    Dir.entries("save").each do |f|
         if f != "." && f != ".." then
             totalEntries += 1
             saves << f
@@ -27,7 +27,7 @@ def loadSaves
             return solo_ActPlayer
         else
             cs = cs.to_i
-            temp_prof.loadFromFile("sauvgard/#{saves[cs]}")
+            temp_prof.loadFromFile("saves/#{saves[cs]}/profile.json")
             solo_ActPlayer = temp_prof
             temp_prof = nil
             puts "Profil chargé : #{solo_ActPlayer.getPseudo()}"
@@ -54,4 +54,14 @@ def newProfile
         puts "ERROR: Mauvais res, c'est naze"
         raise("ERREUR lors de la saisie") #FIXME Faire ca mieux
     end
+end
+
+def checkSave()
+    if !Dir::exist?("saves") then
+        Dir.mkdir("saves")
+    end
+end
+
+def saveGame(name,loaners)
+
 end
