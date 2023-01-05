@@ -11,7 +11,7 @@ require_relative 'solo.rb'
 puts "======================================"
 puts "Bienvenue au RubyJack Games !"
 puts "On commence bientôt les amis :)"
-puts "======================================"
+puts "======================================"soloGame
 puts "\n"
 puts "Menu Principal : "
 puts "1 - Lancer une partie Solo"
@@ -27,7 +27,8 @@ case menu_choix
 when 1
     puts "Choix du soloiste !"
     mn_thread = Thread.new{soloGame()}
-    mn_thread.join
+    mn_thread.join()
+    puts "DEBUG: Thread déjà fini oO"
 when 5
     puts "Vous aller quitter le programe ! En êtes-vous sûr ?\n Appuyez sur 5 encore une fois pour confirmer."
     if gets.chomp.to_i == 5
